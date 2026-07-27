@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello from your deployed app! Part 2',
+    message: 'Hello from your deployed app! Part 3',
     env: process.env.NODE_ENV || 'development',
     timestamp: new Date().toISOString(),
   });
