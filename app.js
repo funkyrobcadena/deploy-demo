@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello from your deployed app! Part 3',
+    message: 'Hello from your deployed app!',
     env: process.env.NODE_ENV || 'development',
     timestamp: new Date().toISOString(),
   });
@@ -17,6 +19,20 @@ app.get('/health', (req, res) => {
 
 app.get('/version', (req, res) => {
   res.json({ version: process.env.APP_VERSION || 'dev' });
+});
+
+// Returns the current server time in a couple of common formats
+app.get('/time', (req, res) => {
+  const now = new Date();
+  res.json({
+    iso: now.toISOString(),
+    unix: Math.floor(now.getTime() / 1000),
+  });
+});
+
+// Echoes back whatever JSON body the caller sends
+app.post('/echo', (req, res) => {
+  res.json({ youSent: req.body });
 });
 
 if (require.main === module) {
