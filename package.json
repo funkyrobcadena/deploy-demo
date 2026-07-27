@@ -1,0 +1,16 @@
+{
+  "name": "deploy-demo",
+  "version": "1.0.0",
+  "description": "Minimal demo app for practicing CI/CD deployment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
